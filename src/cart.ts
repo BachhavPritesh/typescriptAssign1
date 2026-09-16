@@ -1,6 +1,5 @@
 import { CartItem, FoodItem } from "./types";
 
-// Add food to cart
 function addToCart(
     cart: CartItem[],
     foodItem: FoodItem,
@@ -12,14 +11,12 @@ function addToCart(
         return item.id === foodItem.id;
     });
 
-    // If item already exists
     if (existingItem) {
         existingItem.quantity = existingItem.quantity + quantity;
 
         return cart;
     }
 
-    // If item does not exist
     const newItem: CartItem = {
         ...foodItem,
         quantity: quantity,
@@ -31,7 +28,6 @@ function addToCart(
     return cart;
 }
 
-// Remove food from cart
 function removeFromCart(
     cart: CartItem[],
     foodId: number
@@ -42,7 +38,6 @@ function removeFromCart(
     });
 }
 
-// Update quantity
 function updateQuantity(
     cart: CartItem[],
     foodId: number,
@@ -60,12 +55,10 @@ function updateQuantity(
     return cart;
 }
 
-// Calculate total for one item
 function calculateItemTotal(item: CartItem): number {
     return item.price * item.quantity;
 }
 
-// Calculate subtotal
 function calculateSubtotal(cart: CartItem[]): number {
 
     return cart.reduce(function (total, item) {

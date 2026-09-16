@@ -1,6 +1,5 @@
 import { Payment, assertNever } from "./types";
 
-// Process payment
 function processPayment(payment: Payment, finalAmount: number): boolean {
 
     switch (payment.method) {

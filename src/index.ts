@@ -30,21 +30,9 @@ import {
     Payment,
     OrderStatus
 } from "./types";
-
-
-// ------------------------------
-// MAIN PROGRAM
-// ------------------------------
-
 console.log("====================================");
 console.log("       FOOD ORDERING SYSTEM");
 console.log("====================================");
-
-
-// ------------------------------
-// SHOW FOOD MENU
-// ------------------------------
-
 console.log("\nFOOD MENU");
 
 foodItems.forEach(function (item) {
@@ -60,13 +48,6 @@ foodItems.forEach(function (item) {
         );
     }
 });
-
-
-// ------------------------------
-// CREATE CUSTOMER
-// ------------------------------
-
-// Change this to create a guest if needed
 const customer: CustomerType = createMember(
     1,
     "Rahul",
@@ -95,19 +76,7 @@ if ("membershipLevel" in customer) {
 
     console.log("Membership: Guest");
 }
-
-
-// ------------------------------
-// CREATE CART
-// ------------------------------
-
 let cart: CartItem[] = [];
-
-
-// ------------------------------
-// ADD ITEMS
-// ------------------------------
-
 const pizza = foodItems.find(function (item) {
     return item.id === 1;
 });
@@ -149,12 +118,6 @@ if (coffee) {
         2
     );
 }
-
-
-// ------------------------------
-// VIEW CART
-// ------------------------------
-
 console.log("\nCART");
 
 cart.forEach(function (item) {
@@ -167,13 +130,6 @@ cart.forEach(function (item) {
         item.price * item.quantity
     );
 });
-
-
-// ------------------------------
-// UPDATE QUANTITY
-// ------------------------------
-
-// Change pizza quantity to 3
 cart = updateQuantity(
     cart,
     1,
@@ -190,42 +146,16 @@ cart.forEach(function (item) {
         item.quantity
     );
 });
-
-
-// ------------------------------
-// REMOVE ITEM
-// ------------------------------
-
-// Example:
-// cart = removeFromCart(cart, 5);
-
-
-// ------------------------------
-// PAYMENT
-// ------------------------------
-
 const payment: Payment = {
     method: "upi",
     transactionId: "UPI928374"
 };
-
-
-// ------------------------------
-// GENERATE BILL
-// ------------------------------
-
 const bill = generateBill(
     1001,
     customer,
     cart,
     payment
 );
-
-
-// ------------------------------
-// DISPLAY BILL
-// ------------------------------
-
 console.log("\n====================================");
 console.log("           ORDER SUMMARY");
 console.log("====================================");
@@ -269,12 +199,6 @@ if (bill.status === "success") {
         "Final Amount:",
         "₹" + bill.finalAmount.toFixed(2)
     );
-
-
-    // ------------------------------
-    // PROCESS PAYMENT
-    // ------------------------------
-
     console.log("\nPAYMENT");
 
     const paymentSuccessful =
@@ -282,12 +206,6 @@ if (bill.status === "success") {
             bill.payment,
             bill.finalAmount
         );
-
-
-    // ------------------------------
-    // ORDER STATUS
-    // ------------------------------
-
     let orderStatus: OrderStatus = "pending";
 
     if (paymentSuccessful) {

@@ -1,6 +1,5 @@
 import { CustomerType } from "./types";
 
-// Create a guest
 function createGuest(
     id: number,
     name: string,
@@ -21,7 +20,6 @@ function createGuest(
     };
 }
 
-// Create a member
 function createMember(
     id: number,
     name: string,

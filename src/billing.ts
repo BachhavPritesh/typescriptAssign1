@@ -7,8 +7,6 @@ import {
 
 import { calculateSubtotal } from "./cart";
 
-
-// Calculate discount
 function calculateDiscount(
     customer: CustomerType,
     subtotal: number
@@ -16,7 +14,6 @@ function calculateDiscount(
 
     let membershipDiscount = 0;
 
-    // Check if customer is a member
     if ("discountPercentage" in customer) {
 
         membershipDiscount =
@@ -25,7 +22,6 @@ function calculateDiscount(
 
     let additionalDiscount = 0;
 
-    // Extra 5% discount above ₹2000
     if (subtotal > 2000) {
 
         additionalDiscount = subtotal * 5 / 100;
@@ -37,15 +33,11 @@ function calculateDiscount(
     return totalDiscount;
 }
 
-
-// Calculate GST
 function calculateTax(amountAfterDiscount: number): number {
 
     return amountAfterDiscount * 5 / 100;
 }
 
-
-// Calculate final amount
 function calculateFinalAmount(
     subtotal: number,
     discount: number,
@@ -55,8 +47,6 @@ function calculateFinalAmount(
     return subtotal - discount + tax;
 }
 
-
-// Generate bill
 function generateBill(
     orderId: number,
     customer: CustomerType,
@@ -64,7 +54,6 @@ function generateBill(
     payment: Payment
 ): BillResult {
 
-    // Check empty cart
     if (cartItems.length === 0) {
 
         return {

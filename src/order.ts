@@ -1,7 +1,5 @@
 import { OrderStatus, assertNever } from "./types";
 
-
-// Change order status
 function updateOrderStatus(
     currentStatus: OrderStatus,
     newStatus: OrderStatus
@@ -17,8 +15,6 @@ function updateOrderStatus(
     return newStatus;
 }
 
-
-// Display status
 function displayOrderStatus(
     status: OrderStatus
 ): string {
